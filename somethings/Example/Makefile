@@ -22,6 +22,9 @@ $(BUILD_DIRECTORY):
 	mkdir $(BUILD_DIRECTORY)
 
 clean:
-	rm -f ${LIBRARY}
+	rm -rf ${BUILD_DIRECTORY}
+
+fclean: clean
+	rm -f $(LIBRARY)
 
 re: clean all

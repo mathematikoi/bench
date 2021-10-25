@@ -30,11 +30,28 @@ int observator_initialize() {
 		}
 	}
 
+	SDL_Event e;
+	bool quit = false;
+
+	while (!quit) {
+		while( SDL_PollEvent( &e ) != 0 )
+		{
+			switch (e.type) {
+				case SDL_KEYUP:
+					break;
+
+				case SDL_QUIT:
+					quit = true;
+					break;
+
+				default:
+					break;
+			}
+		}
+	}
+
 	SDL_DestroyWindow( window );
-
 	SDL_Quit();
-
-	return 0;
 }
 
 int observator_destroy() {

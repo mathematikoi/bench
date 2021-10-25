@@ -1,10 +1,14 @@
 EXECUTABLE = bench
 
-SOURCES = sources/bench.cpp \
-					sources/observator/observator.cpp \
-					sources/universe/universe.cpp \
-					sources/universe/Something.cpp
 
+SOURCES_DIRECTORY = sources
+SOURCES = bench.cpp \
+					observator/observator.cpp \
+					interactor/interactor.cpp \
+					universe/universe.cpp 
+
+BUILD_DIRECTORY = build
+OBJECTS = $(addprefix $(BUILD_DIRECTORY)/, $(SOURCES:.cpp=.o))
 
 CC = g++
 
@@ -16,10 +20,21 @@ INCLUDES_FLAGS = -Iincludes
 
 all: $(EXECUTABLE)
 
-$(EXECUTABLE) : $(SOURCES)
-	$(CC) $(COMPILER_FLAGS) ${INCLUDES_FLAGS} $(SOURCES) $(LINKER_FLAGS) -o $(EXECUTABLE)
+$(EXECUTABLE) : $(OBJECTS)
+	$(CC) $(COMPILER_FLAGS) ${INCLUDES_FLAGS} $(OBJECTS) $(LINKER_FLAGS) -o $(EXECUTABLE)
+
+$(OBJECTS):  $(BUILD_DIRECTORY)/%.o : $(SOURCES_DIRECTORY)/%.cpp | $(BUILD_DIRECTORY)
+	$(CC) $(INCLUDES_FLAGS) -c $< -o $@
+
+$(BUILD_DIRECTORY):
+	for object in $(OBJECTS); do \
+		mkdir -p `dirname $$object`; \
+	done
 
 clean:
-	rm -f ${EXECUTABLE}
+	rm -rf $(BUILD_DIRECTORY)
+
+fclean: clean
+	rm -f $(EXECUTABLE)
 
 re: clean all
