@@ -14,7 +14,7 @@ CC = g++
 
 COMPILER_FLAGS = -w
 
-LINKER_FLAGS = -lSDL2 -lstdc++fs
+LINKER_FLAGS = -lSDL2 -lstdc++fs -ldl
 
 INCLUDES_FLAGS = -Iincludes
 

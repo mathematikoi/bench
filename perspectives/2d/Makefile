@@ -1,4 +1,4 @@
-LIBRARY = 2D.so
+LIBRARY = 2d.so
 
 SOURCES_DIRECTORY = sources
 SOURCES = 2D.cpp
