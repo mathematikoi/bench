@@ -1,15 +1,21 @@
 #ifndef OBSERVATOR_HPP
 #define OBSERVATOR_HPP
 
-#include <SDL2/SDL.h>
 #include <vector>
+#include <utility>
+
+#include <SDL2/SDL.h>
+
 #include "Perspective.hpp"
-#include "bench.hpp"
+
+struct s_perspective {
+  void *plugin;
+};
 
 struct s_observator {
   size_t width;
   size_t height;
-  std::vector<Perspective*> perspectives;
+  std::vector<std::pair<struct s_perspective, Perspective*>> perspectives;
 };
 
 #define INITIAL_WIDTH 1000

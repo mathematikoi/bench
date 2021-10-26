@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "observator/observator.hpp"
 #include "universe/universe.hpp"
+#include "observator/observator.hpp"
 #include "interactor/interactor.hpp"
 
 struct s_bench {
@@ -13,6 +13,9 @@ struct s_bench {
   struct s_universe universe;
 };
 
-struct s_bench bench;
+extern struct s_bench bench;
+
+#define PERSPECTIVES_PATH "./perspectives"
+#define SOMETHINGS_PATH "./somethings"
 
 #endif

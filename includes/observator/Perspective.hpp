@@ -1,5 +1,5 @@
-#ifndef SOMETHING_HPP
-# define SOMETHING_HPP
+#ifndef PERSPECTIVE_HPP
+# define PERSPECTIVE_HPP
 
 #include <string>
 
