@@ -4,8 +4,8 @@
 #include <string>
 
 class Perspective {
-  std::string name;
-  virtual int initialize() = 0;
+  public:
+  virtual std::string get_name();
 };
 
 #endif

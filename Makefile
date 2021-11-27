@@ -3,9 +3,6 @@ EXECUTABLE = bench
 
 SOURCES_DIRECTORY = sources
 SOURCES = bench.cpp \
-					observator/observator.cpp \
-					interactor/interactor.cpp \
-					universe/universe.cpp 
 
 BUILD_DIRECTORY = build
 OBJECTS = $(addprefix $(BUILD_DIRECTORY)/, $(SOURCES:.cpp=.o))
